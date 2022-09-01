@@ -1,6 +1,12 @@
-public struct HttpService {
-    public private(set) var text = "Hello, World!"
+import Foundation
 
-    public init() {
-    }
+public enum HttpError: Error {
+    case networkError
+    case noData
+}
+
+public protocol HttpService {
+    
+    func getRequest(url: URL, completion: @escaping (Result<Data,Error>)->Void)
+    
 }
