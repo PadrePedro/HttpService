@@ -9,6 +9,9 @@ import Foundation
 
 public class HttpServiceImpl: HttpService {
     
+    public init() {
+    }
+    
     public func getRequest(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, resp, error in
             guard let data = data else {
